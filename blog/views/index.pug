@@ -1,5 +1,27 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  // Page Header
+  // Set your background image for this header on the line below.
+  header.intro-header(style="background-image: url('img/home-bg.jpg')")
+  // Main Content
+  .container
+      .row
+        if articles.length == 0
+          div.alert 目前沒有文章
+        else
+          each article in articles
+            .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+              .post-preview
+                a(href='view/'+article.id)
+                  h2.post-title=article.title
+                  h3.post-subtitle=article.conten.substring(0,10)+"..."
+                p.post-meta
+                  | Posted by 
+                  a(href='#')=article.author
+                  span="on "+article.ctime
+          hr
+          // Pager
+          ul.pager
+              li.next
+                a(href='#') Older Posts →

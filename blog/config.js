@@ -1,8 +1,8 @@
 export default{
     db:{
         username:"postgres",
-        password:"1223",
-        database:"blog",
+        password:"2gjixdjl",
+        database:"postgres",
         port:5432
     }
 };
